@@ -31,6 +31,31 @@
 	}
 	
 </style>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function()
+	{
+		$("#subminBtn").click(function()
+		{
+			//alert("확인");
+			
+			// 두 항목 모두 필수 입력 항목이기 때문에... 생략 가능
+			$("#err").css("display", "none");
+			
+			if ($("#name").val()=="" || $("#telephone").val()=="")
+			{
+				$("#err").css("display", "inline");
+				return;
+			}
+			
+			$("#memberForm").submit();
+		});
+	});
+
+</script>
+
 </head>
 <body>
 
@@ -40,7 +65,7 @@
 </div>
 
 <div>
-	<form action="" method="post" id="memberForm">
+	<form action="memberinsert.do" method="post" id="memberForm">
 		이름 <input type="text" name="name" id="name" class="control" required="required">
 		<br>
 		전화 <input type="text" name="telephone" id="telephone" class="control" required="required">
