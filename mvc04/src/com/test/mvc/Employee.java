@@ -148,6 +148,7 @@ public class Employee
 	{
 		this.basicPay = basicPay;
 	}
+	
 	public int getExtraPay()
 	{
 		return extraPay;

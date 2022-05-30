@@ -19,23 +19,30 @@ import javax.sql.DataSource;
 
 public class DepartmentDAO implements IDepartmentDAO
 {
+	// 인터페이스 자료형을 속성으로 구성
 	private DataSource dataSource;
 
+	
+	// setter 구성
 	public void setDataSource(DataSource dataSource)
 	{
 		this.dataSource = dataSource;
 	}
 
+	// 부서 전체 리스트
 	@Override
 	public ArrayList<Department> list() throws SQLException
 	{
 		ArrayList<Department> result = new ArrayList<Department>();
 		
+		Connection conn = dataSource.getConnection();
+		
 		String sql = "SELECT DEPARTMENTID, DEPARTMENTNAME"
 				+ ", DELCHECK"
-				+ " FROM DEPARTMENTVIEW";
+				+ " FROM DEPARTMENTVIEW"
+				+ " ORDER BY DEPARTMENTID";
 		
-		Connection conn = dataSource.getConnection();
+		
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
@@ -59,6 +66,7 @@ public class DepartmentDAO implements IDepartmentDAO
 		return result;
 	}
 
+	// 부서 데이터 등록(입력, 추가)
 	@Override
 	public int add(Department department) throws SQLException
 	{
@@ -81,6 +89,8 @@ public class DepartmentDAO implements IDepartmentDAO
 		return result;
 	}
 
+	
+	// 부서 데이터 삭제
 	@Override
 	public int remove(String departmentId) throws SQLException
 	{
@@ -103,7 +113,8 @@ public class DepartmentDAO implements IDepartmentDAO
 		
 		return result;
 	}
-
+	
+	// 부서 데이터 변경(수정)
 	@Override
 	public int modify(Department department) throws SQLException
 	{

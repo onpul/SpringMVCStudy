@@ -20,8 +20,10 @@ import javax.sql.DataSource;
 
 public class EmployeeDAO implements IEmployeeDAO
 {
+	// 인터페이스 자료형을 속성으로 구성
 	private DataSource dataSource;
 
+	// setter 구성
 	public void setDataSource(DataSource dataSource)
 	{
 		this.dataSource = dataSource;
@@ -36,7 +38,7 @@ public class EmployeeDAO implements IEmployeeDAO
 		
 		String sql = "SELECT EMPLOYEEID, NAME, SSN, BIRTHDAY"
 				+ ", LUNAR, LUNARNAME, TELEPHONE, DEPARTMENTID"
-				+ ", DEPARTMENTNAME, POSITIONID, POSITIONAME"
+				+ ", DEPARTMENTNAME, POSITIONID, POSITIONNAME"
 				+ ", REGIONID, REGIONNAME, BASICPAY, EXTRAPAY, PAY, GRADE"
 				+ " FROM EMPLOYEEVIEW"
 				+ " ORDER BY EMPLOYEEID";
@@ -51,6 +53,7 @@ public class EmployeeDAO implements IEmployeeDAO
 			Employee emp = new Employee();
 			emp.setEmployeeId(rs.getString("EMPLOYEEID"));
 			emp.setName(rs.getString("NAME"));
+			emp.setSsn(rs.getString("SSN"));
 			emp.setBirthday(rs.getString("BIRTHDAY"));
 			emp.setLunar(rs.getInt("LUNAR"));
 			emp.setLunarName(rs.getString("LUNARNAME"));
@@ -224,6 +227,20 @@ public class EmployeeDAO implements IEmployeeDAO
 		Connection conn = dataSource.getConnection();
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
+		/*
+		employee.setName(name);
+		employee.setSsn1(ssn1);
+		employee.setSsn2(ssn2);
+		employee.setBirthday(birthday);
+		employee.setLunar(Integer.parseInt(lunar));
+		employee.setTelephone(telephone);
+		employee.setRegionId(regionId);
+		employee.setDepartmentId(departmentId);
+		employee.setPositionId(positionId);
+		employee.setBasicPay(Integer.parseInt(basicPay));
+		employee.setExtraPay(Integer.parseInt(extraPay));
+		*/
+		
 		
 		pstmt.setString(1, emp.getName());
 		pstmt.setString(2, emp.getSsn1());
@@ -237,7 +254,6 @@ public class EmployeeDAO implements IEmployeeDAO
 		pstmt.setInt(10, Integer.parseInt(emp.getRegionId()));
 		pstmt.setInt(11, emp.getBasicPay());
 		pstmt.setInt(12, emp.getExtraPay());		
-		
 		result = pstmt.executeUpdate();
 		
 		pstmt.close();
@@ -336,6 +352,7 @@ public class EmployeeDAO implements IEmployeeDAO
 		{
 			result.setEmployeeId(rs.getString("EMPLOYEEID"));
 			result.setName(rs.getString("NAME"));
+			result.setSsn1(rs.getString("SSN1"));
 			result.setBirthday(rs.getString("BIRTHDAY"));
 			result.setLunar(rs.getInt("LUNAR"));
 			result.setLunarName(rs.getString("LUNARNAME"));
@@ -345,7 +362,6 @@ public class EmployeeDAO implements IEmployeeDAO
 			result.setRegionId(rs.getString("REGIONID"));
 			result.setBasicPay(rs.getInt("BASICPAY"));
 			result.setExtraPay(rs.getInt("EXTRAPAY"));
-			result.setSsn1(rs.getString("SSN1"));
 		}
 		
 		rs.close();
@@ -419,5 +435,7 @@ public class EmployeeDAO implements IEmployeeDAO
 		pstmt.close();
 		conn.close();
 		return result;
-	}	
+	}
+	
+	
 }
