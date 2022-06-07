@@ -11,6 +11,40 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="<%=cp%>/css/main.css">
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+
+	$(function()
+	{
+		// 테스트
+		//alert("확");
+		
+		// 수정 버튼 클릭 시 액션 처리
+		$(".updateBtn").click(function()
+		{
+			// 테스트
+			//alert("수정 버튼 클릭");
+			
+			$(location).attr("href", "employeeupdateform.action?employeeId=" + $(this).val());
+		});
+		
+		// 삭제 버튼 클릭 시 액션 처리
+		$(".deleteBtn").click(function()
+		{
+			// 테스트
+			//alert("삭제 버튼 클릭");
+			
+			if (confirm("현재 선택한 데이터를 정말 삭제하시겠습니까?"))
+			{
+				$(location).attr("href", "employeedelete.action?employeeId=" +$(this).val());
+			}
+		});
+		
+	});
+
+</script>
+
 </head>
 <body>
 <!-- --------------------------------------------------------------------------
@@ -28,7 +62,7 @@
 	
 	<!-- 콘텐츠 영역 -->
 	<div id="content">
-		<h1>[직원 관리]</h1>
+		<h1>[ 직원 관리 (관리자 전용) ]</h1>
 		<hr />
 		
 		<div>
@@ -142,8 +176,14 @@
 		 		</td>
 		 		
 		 		<td>${employee.grade==0 ? "관리자" : "사원" }</td>
-		 		<td><button type="button" class="btn updateBtn">수정</button></td>
-		 		<td><button type="button" class="btn deleteBtn">삭제</button></td>
+		 		<td>
+		 			<button type="button" class="btn updateBtn"
+		 			value="${employee.employeeId }">수정</button>
+		 		</td>
+		 		<td>
+		 			<button type="button" class="btn deleteBtn"
+		 			value="${employee.employeeId }">삭제</button>
+		 		</td>
 		 	</tr>
 		 	</c:forEach>
 		 	

@@ -1,5 +1,5 @@
 /* =================================
-	#22.AjaxController.java
+	#23.AjaxController.java
 	- 사용자 정의 컨트롤러 클래스
 ================================= */
 package com.test.mvc;

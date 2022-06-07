@@ -291,103 +291,127 @@ http://localhost:8090/mvc03/memberlist.do
 
 ○ 물리적 파일 구성
 
-   - mvc04_scott.sql         	→ 데이터베이스 관련 객체 구성 및 실습 데이터 준비.
+   - mvc04_scott.sql         		→ 데이터베이스 관련 객체 구성 및 실습 데이터 준비.
  
-   - #1. Employee.java         	→ DTO 개념. 직원 데이터 자료형 클래스      
-   - #2. Department.java        → DTO 개념. 부서 데이터 자료형 클래스
-   - #3. Region.java         	→ DTO 개념. 지역 데이터 자료형 클래스
-   - #4. Position.java         	→ DTO 개념. 직위 데이터 자료형 클래스
+   - #1. Employee.java         		→ DTO 개념. 직원 데이터 자료형 클래스      
+   - #2. Department.java        	→ DTO 개념. 부서 데이터 자료형 클래스
+   - #3. Region.java         		→ DTO 개념. 지역 데이터 자료형 클래스
+   - #4. Position.java         		→ DTO 개념. 직위 데이터 자료형 클래스
 
-   - #5. IEmployeeDAO.java      → 인터페이스
-   - #6. IDepartmentDAO.java    → 인터페이스
-   - #7. IRegionDAO.java        → 인터페이스
-   - #8. IPositionDAO.java      → 인터페이스
+   - #5. IEmployeeDAO.java      	→ 인터페이스
+   - #6. IDepartmentDAO.java    	→ 인터페이스
+   - #7. IRegionDAO.java        	→ 인터페이스
+   - #8. IPositionDAO.java      	→ 인터페이스
 
-   - #9. EmployeeDAO.java       → 데이터베이스 액션 처리 클래스.
-                  직원 데이터 입출력 및 수정 삭제 액션.
+   - #9. EmployeeDAO.java       	→ 데이터베이스 액션 처리 클래스.
+                			   직원 데이터 입출력 및 수정 삭제 액션.
                                            Connection 객체에 대한 의존성 주입 준비
-                  (인터페이스 속성 구성 / setter 정의)
+                 		           (인터페이스 속성 구성 / setter 정의)
 
-   - #10. DepartmentDAO.java    → 데이터베이스 액션 처리 클래스.
-                  부서 데이터 입출력 및 수정 삭제 액션.
+   - #10. DepartmentDAO.java    	→ 데이터베이스 액션 처리 클래스.
+                			   부서 데이터 입출력 및 수정 삭제 액션.
                                            Connection 객체에 대한 의존성 주입 준비
-                  (인터페이스 속성 구성 / setter 정의)
+                 			   (인터페이스 속성 구성 / setter 정의)
 
-   - #11. RegionDAO.java        → 데이터베이스 액션 처리 클래스.
-                  지역 데이터 입출력 및 수정 삭제 액션.
+   - #11. RegionDAO.java        	→ 데이터베이스 액션 처리 클래스.
+                 			   지역 데이터 입출력 및 수정 삭제 액션.
                                            Connection 객체에 대한 의존성 주입 준비
-                  (인터페이스 속성 구성 / setter 정의)
+               				   (인터페이스 속성 구성 / setter 정의)
 
-   - #12. PositionDAO.java      → 데이터베이스 액션 처리 클래스.
-                                 직위 데이터 입출력 및 수정 삭제 액션.
-                                 Connection 객체에 대한 의존성 주입 준비
-                                 (인터페이스 속성 구성 / setter 정의)
+   - #12. PositionDAO.java      	→ 데이터베이스 액션 처리 클래스.
+                                 	   직위 데이터 입출력 및 수정 삭제 액션.
+                                           Connection 객체에 대한 의존성 주입 준비
+                                           (인터페이스 속성 구성 / setter 정의)
 
  
-   - #13. EmployeeMenu.jsp      → 메인 메뉴 뷰 페이지.
-                                 로그아웃 처리 기능
+   - #13. EmployeeMenu.jsp     	 	→ 메인 메뉴 뷰 페이지.
+                                	   로그아웃 처리 기능
 
-   - #14. menuStyle.css         → 메뉴 스타일 구성.
+   - #14. menuStyle.css         	→ 메뉴 스타일 구성.
  
-   - #15. EmployeeList.jsp      → 직원 리스트 출력 페이지.
-   - #16. main.css              → 메인 스타일 구성.
+   - #15. EmployeeList.jsp      	→ 직원 리스트 출력 페이지.
+
+   - #16. main.css              	→ 메인 스타일 구성.
 
    - #17. EmployeeListController.java
      (employeelist.action)
 
+   - #18. web.xml               	→ DispatcherServlet 객체 등록.
+                    	        	   URL 매핑 주소 등록.
+   - #19. dispatcher-servlet.xml   	→ 컨트롤러 객체 등록.
+                    			   URL 매핑 주소 등록.
+                     			   SimpleDriverDataSource 객체 등록.
+                  		 	   의존 객체 주입 설정.
+                   		 	   DAO 객체 등록.
 
-   - #18. web.xml               → DispatcherServlet 객체 등록.
-                    	         URL 매핑 주소 등록.
-   - #19. dispatcher-servlet.xml   → 컨트롤러 객체 등록.
-                    		 URL 매핑 주소 등록.
-                     		 SimpleDriverDataSource 객체 등록.
-                  		 의존 객체 주입 설정.
-                   		 DAO 객체 등록.
-
-   - #20. EmployeeInsertForm.jsp      → 직원 데이터 입력 폼 페이지
-                 	            AJAX, jQeury 기능 포함.
+   - #20. EmployeeInsertForm.jsp   	→ 직원 데이터 입력 폼 페이지
+                 	                    AJAX, jQeury 기능 포함.
 
    - #21. EmployeeInsertFormController.java
      (employeeinsertform.java)
 
-   - #22. AjaxController.java
+   - #22. EmployeeInsertController.java
+     (employeeinsert.action)
+
+   - #23. AjaxController.java
      (ajax.action)
 
-   - #23. Ajax.jsp            → AJAX 객체 구성 페이지.
+   - #24. Ajax.jsp            		→ AJAX 객체 구성 페이지.
 
-   - EmployeeUpdateForm.jsp      → 직원 데이터 수정 폼 페이지
-                  AJAX, jQeury 기능 포함.
+   - #25. EmployeeUpdateForm.jsp      	→ 직원 데이터 수정 폼 페이지
+                			   AJAX, jQeury 기능 포함.
+
+   - #26. EmployeeUpdateFormController.java
+     (employeeupdateform.action)
+
+   - #27. EmployeeUpdateController.java
+     (employeeupdate.action)
+
+   - #28. EmployeeDeleteController.java
+     (employeedelete.action)
+
+   - #29. LoginForm.jsp            	→ 관리자, 일반사원 로그인 폼 페이지.
+                  			   ID(employeeId), PW(주민번호 뒤 7자리) 입력.
+
+   - #30. LoginFormController.java
+
+   - #31. LoginController.java
+
+   - #32. EmpList.jsp         		→ 일반 직원 전용 리스트 출력 페이지.
+                  		           로그아웃 처리.
+                  		           입력, 수정, 삭제 기능 없음.
+
+   - #33. EmpListController.java
+
+   - LogoutController.java
 
 
-   - DepartmentList.jsp         → 부서 리스트 출력 페이지.
+   - DepartmentList.jsp        		→ 부서 리스트 출력 페이지.
 
-   - DepartmentInsertForm.jsp      → 부서 데이터 입력 폼 페이지.
+   - DepartmentInsertForm.jsp      	→ 부서 데이터 입력 폼 페이지.
                   
-   - DepartmentUpdateForm.jsp      → 부서 데이터 수정 폼 페이지
+   - DepartmentUpdateForm.jsp      	→ 부서 데이터 수정 폼 페이지
                
 
-   - RegionList.jsp         → 지역 리스트 출력 페이지.
+   - RegionList.jsp         		→ 지역 리스트 출력 페이지.
 
-   - RegionInsertForm.jsp      → 지역 데이터 입력 폼 페이지.
+   - RegionInsertForm.jsp      		→ 지역 데이터 입력 폼 페이지.
                   
-   - RegionUpdateForm.jsp      → 지역 데이터 수정 폼 페이지
+   - RegionUpdateForm.jsp      		→ 지역 데이터 수정 폼 페이지
 
 
-   - PositionList.jsp         → 직위 리스트 출력 페이지.
+   - PositionList.jsp         		→ 직위 리스트 출력 페이지.
 
-   - PositionInsertForm.jsp      → 직위 데이터 입력 폼 페이지.
+   - PositionInsertForm.jsp      	→ 직위 데이터 입력 폼 페이지.
                   
-   - PositionUpdateForm.jsp      → 직위 데이터 수정 폼 페이지
+   - PositionUpdateForm.jsp      	→ 직위 데이터 수정 폼 페이지
 
 
 
-   - LoginForm.jsp            → 관리자, 일반사원 로그인 폼 페이지.
-                  ID(employeeId), PW(주민번호 뒤 7자리) 입력.
-   - LogoutForm.jsp         → 로그아웃 처리와 관련한 폼 페이지.
 
-   - EmpList.jsp         → 일반 직원 전용 리스트 출력 페이지.
-                  로그아웃 처리.
-                  입력, 수정, 삭제 기능 없음.
+   - LogoutForm.jsp         		→ 로그아웃 처리와 관련한 폼 페이지.
+
+
 
 
    - ... 중략 ....
@@ -396,19 +420,15 @@ http://localhost:8090/mvc03/memberlist.do
 
 
    
-   - EmployeeInsertController.java
-     (employeeinsert.action)
 
 
 
-   - EmployeeUpdateFormController.java
-     (employeeupdateform.action)
 
-   - EmployeeUpdateController.java
-     (employeeupdate.action)
 
-   - EmployeeDeleteController.java
-     (employeedelete.action)
+
+
+
+   - 
             
    - ... 중략 ....
 
@@ -436,11 +456,10 @@ http://localhost:8090/mvc03/memberlist.do
    - PositionDeleteController.java
 
 
-   - LoginFormController.java
-   - LoginController.java
-   - LogoutController.java
 
-   - EmpListController.java
+
+
+
 
    - ... 중략 ....
 

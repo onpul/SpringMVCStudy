@@ -10,7 +10,6 @@
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="com.test.mvc.MemberDTO"/>
 <fullyQualifiedTypeName name="com.test.mvc.IMemberDAO"/>
-<fullyQualifiedTypeName name="com.test.mvc.IRegionDAO"/>
 <fullyQualifiedTypeName name="com.test.mvc.Region"/>
 <fullyQualifiedTypeName name="com.test.mvc.IPositionDAO"/>
 <fullyQualifiedTypeName name="javax.sql.DataSource"/>
@@ -20,7 +19,12 @@
 <fullyQualifiedTypeName name="com.test.mvc.PositionDAO"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="com.test.mvc.IEmployeeDAO"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.springframework.web.filter.CharacterEncodingFilter"/>
 <fullyQualifiedTypeName name="org.springframework.jdbc.datasource.SimpleDriverDataSource"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="com.test.mvc.IRegionDAO"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+<fullyQualifiedTypeName name="org.springframework.ui.Model"/>
 </qualifiedTypeNameHistroy>

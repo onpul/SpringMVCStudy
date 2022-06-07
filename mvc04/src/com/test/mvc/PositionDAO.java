@@ -19,12 +19,12 @@ import javax.sql.DataSource;
 public class PositionDAO implements IPositionDAO
 {
 	// 인터페이스 자료형을 속성으로 구성
-		private DataSource datasource;
+		private DataSource dataSource;
 
 	// setter 구성
-	public void setDatasource(DataSource datasource)
+	public void setDataSource(DataSource dataSource)
 	{
-		this.datasource = datasource;
+		this.dataSource = dataSource;
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class PositionDAO implements IPositionDAO
 	{
 		ArrayList<Position> result = new ArrayList<Position>();
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "SELECT POSITIONID, POSITIONNAME, MINBASICPAY, DELCHECK FROM POSITIONVIEW ORDER BY POSITIONID";
 		
@@ -48,6 +48,8 @@ public class PositionDAO implements IPositionDAO
 			position.setPositionName(rs.getString("POSITIONNAME"));
 			position.setMinBasicPay(rs.getInt("MINBASICPAY"));
 			position.setDelCheck(rs.getInt("DELCHECK"));
+			
+			result.add(position);
 		}
 		rs.close();
 		pstmt.close();
@@ -62,7 +64,7 @@ public class PositionDAO implements IPositionDAO
 	{
 		int result = 0;
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "INSERT INTO POSITION(POSITIONID, POSITIONNAME, MINBASICPAY) VALUES(POSITIONSEQ.NEXTVAL, ?, ?)";
 		
@@ -84,7 +86,7 @@ public class PositionDAO implements IPositionDAO
 	{
 		int result = 0;
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "DELETE FROM POSITION WHERE POSITIONID=?";
 		
@@ -105,7 +107,7 @@ public class PositionDAO implements IPositionDAO
 	{
 		int result = 0;
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "UPDATE POSITION SET POSITIONNAME=?, MINBASICPAY=? WHERE POSITIONID=?";
 		

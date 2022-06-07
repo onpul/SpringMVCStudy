@@ -131,10 +131,10 @@ $.datepicker.formatDate( "DD, MM d, yy", new Date( 2007, 7 - 1, 14 ), {
 </head>
 <body>
 
-<!-- --------------------------
+<!--------------------------------
 	#20. EmployeeInsertForm.jsp
 	- 직원 데이터 입력 페이지
----------------------------- -->
+---------------------------------->
 
 <div>
 	<!-- 메뉴 영역 -->
@@ -144,7 +144,7 @@ $.datepicker.formatDate( "DD, MM d, yy", new Date( 2007, 7 - 1, 14 ), {
 	
 	<!-- 콘텐츠 영역 -->
 	<div id="content">
-		<h1>[직원 추가]</h1>
+		<h1>[ 직원 추가 ]</h1>
 		<hr />
 		
 		<form action="employeeinsert.action" method="post" id="employeeForm">
