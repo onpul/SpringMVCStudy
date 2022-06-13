@@ -62,3 +62,9 @@ VALUES(MEMBERLISTSEQ.NEXTVAL, '우수정', '010-2222-2222');
 --○ 커밋
 COMMIT;
 --==>> 커밋 완료.
+
+
+--○ 데이터 삭제
+DELETE
+FROM TBL_MEMBERLIST
+WHERE MID = 4;
